@@ -3,17 +3,25 @@ import VideoListItem, { YtVideo } from "./VideoListItem";
 
 interface VideoListProps {
   videos: YtVideo[];
+  setSelectedVideo: (video: YtVideo) => void;
 }
 
-export default function VideoList({ videos }: VideoListProps) {
+export default function VideoList({
+  videos,
+  setSelectedVideo,
+}: VideoListProps) {
   console.log("Videos:", videos);
 
   if (videos.length === 0) return <Spinner />;
 
   return (
-    <ul className="space-y-4">
+    <ul className="p-2 border-slate-100 border rounded-xl space-y-2">
       {videos.map((video: YtVideo) => (
-        <VideoListItem key={video.id.videoId} video={video} />
+        <VideoListItem
+          key={video.id.videoId}
+          video={video}
+          setSelectedVideo={setSelectedVideo}
+        />
       ))}
     </ul>
   );

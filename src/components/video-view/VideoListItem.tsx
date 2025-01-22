@@ -9,29 +9,39 @@ interface Thumbnails {
   };
 }
 
+interface Snippet {
+  channelId: string;
+  channelTitle: string;
+  description: string;
+  publishedAt: string;
+  title: string;
+  thumbnails: Thumbnails;
+}
+
 export interface YtVideo {
   eTag: string;
   id: {
     videoId: string;
   };
-  snippet: {
-    channelId: string;
-    channelTitle: string;
-    description: string;
-    publishedAt: string;
-    title: string;
-    thumbnails: Thumbnails;
-  };
+  snippet: Snippet;
 }
 
 interface VideoListItemProps {
   video: YtVideo;
+  setSelectedVideo: (video: YtVideo) => void;
 }
-export default function VideoListItem({ video }: VideoListItemProps) {
+export default function VideoListItem({
+  video,
+  setSelectedVideo,
+}: VideoListItemProps) {
+  console.log("Video desc:", video.snippet.description);
   return (
-    <li className="p-4 border-slate-200 border-2 rounded-2xl">
-      <div className="w-[600px] h-24 grid grid-cols-3 gap-4">
-        <div className="rounded-lg overflow-hidden">
+    <li
+      onClick={() => setSelectedVideo(video)}
+      className="px-4 py-3 border-slate-200 hover:border-slate-100 hover:bg-slate-950 border-2 rounded-2xl transition-all ease-in-out hover:scale-105"
+    >
+      <div className="w-[400px] grid grid-cols-3 gap-4">
+        <div className="self-center rounded-lg overflow-hidden">
           <Image
             src={video.snippet.thumbnails.medium.url}
             alt="Video thumbnail"
@@ -40,11 +50,19 @@ export default function VideoListItem({ video }: VideoListItemProps) {
           />
         </div>
 
-        <div className="col-span-2">
-          <p className="text-lg font-semibold truncate">
+        <div className="col-span-2 h-full flex flex-col">
+          <p
+            title={video.snippet.title}
+            className="text-base font-semibold truncate"
+          >
             {video.snippet.title}
           </p>
-          <p className="italic text-clip">{video.snippet.description}</p>
+          <p
+            title={video.snippet.description}
+            className="h-12 text-sm italic overflow-y-auto"
+          >
+            {video.snippet.description}
+          </p>
         </div>
       </div>
     </li>
