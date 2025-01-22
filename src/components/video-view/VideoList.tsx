@@ -15,7 +15,7 @@ export default function VideoList({
   if (videos.length === 0) return <Spinner />;
 
   return (
-    <ul className="p-2 border-slate-100 border rounded-xl space-y-2">
+    <ul className="space-y-2">
       {videos.map((video: YtVideo) => (
         <VideoListItem
           key={video.id.videoId}

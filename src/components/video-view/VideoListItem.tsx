@@ -38,7 +38,7 @@ export default function VideoListItem({
   return (
     <li
       onClick={() => setSelectedVideo(video)}
-      className="px-4 py-3 border-slate-200 hover:border-slate-100 hover:bg-slate-950 border-2 rounded-2xl transition-all ease-in-out hover:scale-105"
+      className="px-4 py-3 bg-gray-900 hover:bg-gray-950 border-gray-200 hover:border-gray-100 border-2 rounded-2xl transition-all ease-in-out hover:scale-105"
     >
       <div className="w-[400px] grid grid-cols-3 gap-4">
         <div className="self-center rounded-lg overflow-hidden">

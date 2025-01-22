@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 export default function SearchIcon({
-  className = "text-gray-500 dark:text-gray-400",
+  className = "text-gray-400 dark:text-gray-200",
 }: {
   className?: string;
 }) {

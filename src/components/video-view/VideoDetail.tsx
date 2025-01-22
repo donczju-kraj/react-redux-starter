@@ -5,7 +5,7 @@ export default function VideoDetail({ video }: { video: YtVideo }) {
 
   return (
     <div className="flex flex-col space-y-4">
-      <div className="aspect-video">
+      <div className="aspect-video border border-gray-200 rounded-2xl overflow-hidden">
         <iframe
           className="w-full h-full"
           src={url}
@@ -13,7 +13,7 @@ export default function VideoDetail({ video }: { video: YtVideo }) {
           allowFullScreen
         />
       </div>
-      <div className="space-y-4">
+      <div className="space-y-4 border-t border-gray-200 pt-2">
         <div>{video.snippet.title}</div>
         <div>{video.snippet.description}</div>
       </div>

@@ -20,8 +20,12 @@ export default function VideosView() {
   }, [videos]);
 
   return (
-    <div className="border border-white px-4 py-3 rounded-2xl flex flex-col space-y-10">
-      <SearchBar query={query} setQuery={setQuery} />
+    <div className="border border-white px-4 py-3 rounded-2xl flex flex-col space-y-8 bg-gray-950">
+      <div className="mt-3 flex flex-col space-y-2">
+        <p className="font-bold text-xl">Search videos by:</p>
+        <SearchBar query={query} setQuery={setQuery} />
+      </div>
+      <hr />
       <div className="flex space-x-10">
         {selectedVideo && <VideoDetail video={selectedVideo} />}
         <VideoList videos={videos} setSelectedVideo={setSelectedVideo} />
