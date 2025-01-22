@@ -19,7 +19,11 @@ export default function SearchBar() {
         onChange={(e) => setSearch(e.target.value)}
         required
       />
-      <Button caption="Search" onClick={() => console.log(search)} />
+      <Button
+        caption="Search"
+        onClick={() => console.log(search)}
+        className="transition-all duration-200 ease-in-out hover:-translate-y-0.5"
+      />
     </div>
   );
 }
