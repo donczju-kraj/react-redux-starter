@@ -29,9 +29,9 @@ interface VideoListItemProps {
 }
 export default function VideoListItem({ video }: VideoListItemProps) {
   return (
-    <li className="p-4 border-slate-200 border-2 rounded-lg">
-      <div className="w-[600px] flex gap-4">
-        <div>
+    <li className="p-4 border-slate-200 border-2 rounded-2xl">
+      <div className="w-[600px] h-24 grid grid-cols-3 gap-4">
+        <div className="rounded-lg overflow-hidden">
           <Image
             src={video.snippet.thumbnails.medium.url}
             alt="Video thumbnail"
@@ -40,9 +40,11 @@ export default function VideoListItem({ video }: VideoListItemProps) {
           />
         </div>
 
-        <div>
-          <p className="text-xl font-semibold">{video.snippet.title}</p>
-          <p className="italic">{video.snippet.description}</p>
+        <div className="col-span-2">
+          <p className="text-lg font-semibold truncate">
+            {video.snippet.title}
+          </p>
+          <p className="italic text-clip">{video.snippet.description}</p>
         </div>
       </div>
     </li>
