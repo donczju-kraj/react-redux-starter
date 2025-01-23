@@ -3,11 +3,9 @@
 import SearchIcon from "../icons/SearchIcon";
 
 interface SearchBarProps {
-  // query: string;
   setQuery: (query: string) => void;
 }
 
-// export default function SearchBar({ query, setQuery }: SearchBarProps) {
 export default function SearchBar({ setQuery }: SearchBarProps) {
   return (
     <div className="relative w-full">
