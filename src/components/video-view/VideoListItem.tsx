@@ -34,7 +34,6 @@ export default function VideoListItem({
   video,
   setSelectedVideo,
 }: VideoListItemProps) {
-  console.log("Video desc:", video.snippet.description);
   return (
     <li
       onClick={() => setSelectedVideo(video)}

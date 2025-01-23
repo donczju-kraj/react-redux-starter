@@ -10,8 +10,6 @@ export default function VideoList({
   videos,
   setSelectedVideo,
 }: VideoListProps) {
-  console.log("Videos:", videos);
-
   if (videos.length === 0) return <Spinner />;
 
   return (

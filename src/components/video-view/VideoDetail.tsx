@@ -14,7 +14,7 @@ export default function VideoDetail({ video }: { video: YtVideo }) {
         />
       </div>
       <div className="space-y-4 border-t border-gray-200 pt-2">
-        <div>{video.snippet.title}</div>
+        <div className="font-semibold text-lg">{video.snippet.title}</div>
         <div>{video.snippet.description}</div>
       </div>
     </div>
