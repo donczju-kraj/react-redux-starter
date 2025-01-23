@@ -12,13 +12,16 @@ export default function useYoutubeSearch({ query = "" }: { query?: string }) {
   }, [query]);
 
   const search = async (query: string) => {
-    const response = await youtube.get("/search", {
-      params: {
-        q: query,
-      },
-    });
-
-    setVideos(response.data.items);
+    try {
+      const response = await youtube.get("/search", {
+        params: {
+          q: query,
+        },
+      });
+      setVideos(response.data.items);
+    } catch (error) {
+      console.error("Error searching YouTube:", error);
+    }
   };
 
   return [videos];
